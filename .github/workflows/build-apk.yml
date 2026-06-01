@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout source
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -22,21 +22,21 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build Vite app
+      - name: Build web app
         run: npm run build
 
       - name: Sync Capacitor
         run: npx cap sync android
 
-     - name: Setup Java
-  uses: actions/setup-java@v4
-  with:
-    distribution: temurin
-    java-version: 21
+      - name: Setup Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
 
       - name: Build APK
+        working-directory: android
         run: |
-          cd android
           chmod +x gradlew
           ./gradlew assembleDebug
 
