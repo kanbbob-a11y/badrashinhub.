@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">تطبيق الروستر والحضور</string>
+    <string name="title_activity_main">تطبيق الروستر والحضور</string>
+    <string name="package_name">com.rosterattendance.app</string>
+    <string name="custom_url_scheme">com.rosterattendance.app</string>
+</resources>
